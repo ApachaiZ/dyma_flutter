@@ -22,7 +22,7 @@ class _CityState extends State<City> {
           Icon(Icons.more_vert),
         ],
       ),
-      body: Container(
+      body: Center(
         child: GridView.count(
             mainAxisSpacing: 1,
             crossAxisSpacing: 1,
