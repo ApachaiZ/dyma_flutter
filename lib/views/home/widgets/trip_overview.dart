@@ -40,7 +40,9 @@ class TripOverview extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  DateFormat("d/M/y").format(trip.date),
+                  trip.date != null
+                      ? DateFormat("dd/MM/yyyy").format(trip.date!)
+                      : "Choisissez une date",
                   style: const TextStyle(fontSize: 20),
                 ),
               ),

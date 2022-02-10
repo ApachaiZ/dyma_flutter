@@ -22,32 +22,46 @@ class _CityState extends State<City> {
   void initState() {
     super.initState();
     index = 0;
-    myTrip = Trip(activities: [], date: DateTime.now(), city: "Coruscant");
+    myTrip = Trip(
+      activities: [],
+      date: null,
+      city: "Coruscant",
+    );
   }
 
+  //method pour affichage du datePicker
   void setDate() {
     showDatePicker(
       context: context,
       initialDate: DateTime.now().add(const Duration(days: 1)),
       firstDate: DateTime.now().add(const Duration(days: 1)),
       lastDate: DateTime.now().add(const Duration(days: 365)),
-    ).then((newDate) {
-      if (newDate != null) {
-        setState(() {
-          myTrip.date = newDate;
-        });
-      }
-    });
+    ).then(
+      (newDate) {
+        if (newDate != null) {
+          setState(
+            () {
+              myTrip.date = newDate;
+            },
+          );
+        }
+      },
+    );
   }
 
+  //Index selection de la navbar
   void switchIndex(newIndex) {
     setState(() {
       index = newIndex;
     });
   }
 
-  double get myPrice {
-    return 0;
+  void toggleActivity(String id) {
+    setState(() {
+      myTrip.activities.contains(id)
+          ? myTrip.activities.remove(id)
+          : myTrip.activities.add(id);
+    });
   }
 
   @override
@@ -68,11 +82,17 @@ class _CityState extends State<City> {
           ),
           Expanded(
             child: index == 0
-                ? ActivityList(activities: widget.activities)
+                ? ActivityList(
+                    activities: widget.activities,
+                    selectedActivities: myTrip.activities,
+                    toggleActivity: toggleActivity,
+                  )
                 : const TripActivityList(),
           ),
         ],
       ),
+
+      //navbar
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         items: const [
