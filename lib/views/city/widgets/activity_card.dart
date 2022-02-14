@@ -44,16 +44,19 @@ class ActivityCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      activity.name,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
+                FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Row(
+                    children: [
+                      Text(
+                        activity.name,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),
