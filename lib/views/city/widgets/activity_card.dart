@@ -15,7 +15,8 @@ class ActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      padding: const EdgeInsets.all(2),
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -39,7 +40,7 @@ class ActivityCard extends StatelessWidget {
                         const Icon(
                           Icons.check,
                           size: 40,
-                          color: Colors.white,
+                          color: Colors.green,
                         ),
                     ],
                   ),
@@ -52,7 +53,14 @@ class ActivityCard extends StatelessWidget {
                         activity.name,
                         style: const TextStyle(
                           fontSize: 20,
-                          color: Colors.white,
+                          color: Colors.orange,
+                          shadows: <Shadow>[
+                            Shadow(
+                              offset: Offset(1.5, 1.5),
+                              blurRadius: 1.5,
+                              color: Color.fromARGB(255, 0, 0, 0),
+                            ),
+                          ],
                         ),
                       ),
                     ],

@@ -2,7 +2,7 @@ import 'package:dyma_flutter/models/activity.dart';
 
 List<Activity> activities = [
   Activity(
-      name: "Dome de la République",
+      name: "Dôme de la République",
       image: "assets/images/coruscant/details/coruscant_dome.jpg",
       id: "cor1",
       city: "Coruscant"),
