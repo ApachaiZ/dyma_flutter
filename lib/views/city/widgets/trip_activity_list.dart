@@ -15,6 +15,7 @@ class TripActivityList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.all(1),
       child: ListView.builder(
         itemBuilder: (context, index) {
           var activity = activities[index];
