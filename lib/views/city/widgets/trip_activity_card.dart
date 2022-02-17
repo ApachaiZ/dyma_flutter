@@ -31,6 +31,7 @@ class _TripActivityCardState extends State<TripActivityCard> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
